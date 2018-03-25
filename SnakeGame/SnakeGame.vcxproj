@@ -161,7 +161,7 @@
   <ItemGroup>
     <ClCompile Include="coord.cpp" />
     <ClCompile Include="snake.cpp" />
-    <ClCompile Include="SnakeGame.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
