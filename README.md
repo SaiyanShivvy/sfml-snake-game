@@ -3,7 +3,7 @@ Assignment 1 for Game Programming.
 
 ## Additional Information
 Made using C++ and SFML. 
-\newline Made in Visual Studio 2017 and Atom.
+Made in Visual Studio 2017 and Atom.
 
 ## Version
 Current: 0.1 
