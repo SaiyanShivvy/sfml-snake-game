@@ -1,13 +1,13 @@
 #pragma once
 //enum maybe replaced to keyboard events.
 
-
 #ifndef SNAKE_H
 #define SNAKE_H
 
 #include "coord.h"
-#include <iostream>
+#include "stdafx.h"
 #include <deque>
+#include <iostream>
 
 using namespace std;
 
@@ -24,6 +24,7 @@ public:
 	bool move(int); //moves the snake
 	bool touch(); //used when checking for collision of the snake colliding with itself
 	bool foodCollide(COORD food); //used to check if the snake collides with the fruit
+	bool justAte; //tracks food being eaten as by change of color
 
 	void grow(); //grows the snake
 	void shrink(); //shrinks the snake, creates a movement motion. 
@@ -42,8 +43,8 @@ public:
 	//mutators
 	void setX(int x);
 	void setY(int y);
-	std::deque<COORD> setCoords(int x, int y);
 	void setDirection();
-
+	std::deque<COORD> setCoords(int x, int y);
+};
 
 #endif

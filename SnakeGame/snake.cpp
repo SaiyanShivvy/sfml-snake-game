@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "snake.h"
 #include "coord.h"
 #include <iostream>
@@ -38,7 +39,7 @@ void SNAKE::shrink() {
 
 //checks for food collision
 bool SNAKE::foodCollide(COORD food) {
-	if (asnake.front().getX == food.getX() && asnake.front().getY() == food.getY()) { //Checks if the snake is touching the food
+	if (asnake.front().getX() == food.getX() && asnake.front().getY() == food.getY()) { //Checks if the snake is touching the food
 		cout << "FOOD EATEN" << endl; //Debug
 		return true;
 	}
@@ -99,44 +100,51 @@ bool SNAKE::touch(){
 
 //snake moves as long as it doesn't collide
 bool SNAKE::move(int NewDirection) {
+	bool doMove = true;
 	//Controls the snake
 	shrink();
-	if (NewDirection == UP) {
-		if (adirection != DOWN) { //When the snake faces one way, it cannot go back on itself (so if it goes UP it cannot go DOWN)
-			asnake.push_front(COORD(asnake.front().getX(), asnake.front().getY() - 25));
-			adirection = UP;
+	while (doMove = true) {
+		if (NewDirection == UP) {
+			if (adirection != DOWN) { //When the snake faces one way, it cannot go back on itself (so if it goes UP it cannot go DOWN)
+				asnake.push_front(COORD(asnake.front().getX(), asnake.front().getY() - 25));
+				adirection = UP;
+			}
+			else {
+				asnake.push_front(COORD(asnake.front().getX(), asnake.front().getY() + 25));
+			}
 		}
-		else {
-			asnake.push_front(COORD(asnake.front().getX(), asnake.front().getY() + 25));
+		else if (NewDirection == RIGHT) {
+			if (adirection != LEFT) { //When the snake faces one way, it cannot go back on itself
+				asnake.push_front(COORD(asnake.front().getX() + 25, asnake.front().getY()));
+				adirection = RIGHT;
+			}
+			else {
+				asnake.push_front(COORD(asnake.front().getX() - 25, asnake.front().getY()));
+			}
 		}
+		else if (NewDirection == DOWN) {
+			if (adirection != UP) { //When the snake faces one way, it cannot go back on itself
+				asnake.push_front(COORD(asnake.front().getX(), asnake.front().getY() + 25));
+				adirection = DOWN;
+			}
+			else {
+				asnake.push_front(COORD(asnake.front().getX(), asnake.front().getY() - 25));
+			}
+		}
+		else if (NewDirection == LEFT) {
+			if (adirection != RIGHT) { //When the snake faces one way, it cannot go back on itself
+				asnake.push_front(COORD(asnake.front().getX() - 25, asnake.front().getY()));
+				adirection = LEFT;
+			}
+			else {
+				asnake.push_front(COORD(asnake.front().getX() + 25, asnake.front().getY()));
+			}
+		}
+		return true;
 	}
-	else if (NewDirection == RIGHT) {
-		if (adirection != LEFT) { //When the snake faces one way, it cannot go back on itself
-			asnake.push_front(COORD(asnake.front().getX() + 25, asnake.front().getY()));
-			adirection = RIGHT;
-		}
-		else {
-			asnake.push_front(COORD(asnake.front().getX() - 25, asnake.front().getY()));
-		}
+	else {
+		return false;
 	}
-	else if (NewDirection == DOWN) {
-		if (adirection != UP) { //When the snake faces one way, it cannot go back on itself
-			asnake.push_front(COORD(asnake.front().getX(), asnake.front().getY() + 25));
-			adirection = DOWN;
-		}
-		else {
-			asnake.push_front(COORD(asnake.front().getX(), asnake.front().getY() - 25));
-		}
-	}
-	else if (NewDirection == LEFT) {
-		if (adirection != RIGHT) { //When the snake faces one way, it cannot go back on itself
-			asnake.push_front(COORD(asnake.front().getX() - 25, asnake.front().getY()));
-			adirection = LEFT;
-		}
-		else {
-			asnake.push_front(COORD(asnake.front().getX() + 25, asnake.front().getY()));
-		}
-	}	
 }
 
 

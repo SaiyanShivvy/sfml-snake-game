@@ -2,6 +2,7 @@
 #ifndef COORD_H
 #define COORD_H
 
+#include "stdafx.h"
 #include <iostream>
 using namespace std;
 

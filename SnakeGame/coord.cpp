@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "coord.h"
 #include <iostream>
 
@@ -18,9 +19,9 @@ int COORD::getY() {
 }
 
 //Checks the COORD, and returns a bool 
-bool COORD::same(COORD c1, COORD c2) {
+bool COORD:: same(COORD c1, COORD c2) {
 	//Checks if one coord's x and y values the same as another.
-	if (c1.ax == c2.ax && c1.ay == c2.ay) {
+	if ((c1.ax == c2.ax) && (c1.ay == c2.ay)) {
 		return true;
 	}
 	else {
@@ -35,6 +36,3 @@ void COORD::setX(int x) {
 void COORD::setY(int y) {
 	ay = y;
 }
-
-
-
