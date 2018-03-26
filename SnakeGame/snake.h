@@ -26,6 +26,7 @@ public:
 	bool foodCollide(COORD food); //used to check if the snake collides with the fruit
 
 	void grow(); //grows the snake
+	void shrink(); //shrinks the snake, creates a movement motion. 
 	void reset(); //restores snake to initial size
 
 	int foodCount; //tracks the amount of food eaten.
@@ -33,16 +34,16 @@ public:
 		return adirection; //returns the current direction of the snake
 	}
 
-	//Gets the position of X and Y
+	//accessors
 	int getX();
 	int getY();
 	std::deque<COORD> getCoords(); //return the coord of the snake
 
-	//setters
+	//mutators
 	void setX(int x);
 	void setY(int y);
 	std::deque<COORD> setCoords(int x, int y);
-};
+	void setDirection();
 
 
 #endif

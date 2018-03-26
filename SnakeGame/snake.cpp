@@ -25,11 +25,16 @@ void SNAKE::reset() {
 	foodCount = 0; //Reset foodCount 
 }
 
-
 //Grows the Snake
 void SNAKE::grow() {
 	asnake.push_back(COORD(asnake.back().getX(), asnake.back().getY())); //the snake grows using deque function by adding a section to the end of queue
 }
+
+//Shrinks the snake (used when moving)
+void SNAKE::shrink() {
+	asnake.pop_back();
+}
+
 
 //checks for food collision
 bool SNAKE::foodCollide(COORD food) {
@@ -43,10 +48,96 @@ bool SNAKE::foodCollide(COORD food) {
 }
 
 //create food
+COORD SNAKE::food() {
+	srand(time(NULL)); // Random time seed for setting food
+	int posX = getX();
+	int posY = getY();
 
+	//random food location 
+	posX = (rand()% 15+1)*25;
+	posY = (rand()% 15+1)*25;
 
+	COORD food(posX, posY);
 
+	//sets food if index is empty
+	for (int i = 0; i < asnake.size(); i++) { //checks all coords to make sure indexs are empty
+		if (!food.same(food, asnake[i])) { //if the location is not currently being used by the snake
+			return food;
+		}
+	}
+}
 
+//the coords of the snake
+std::deque<COORD> SNAKE::getCoords() {
+	return asnake;
+}
+
+//return X coord of the head of the snake
+int SNAKE::getX() {
+	return asnake.front().getX();
+}
+
+//return Y coord of the head of the snake
+int SNAKE::getY() {
+	return asnake.front().getY();
+}
+
+//sets direction of snake
+void SNAKE::setDirection() {
+	adirection = RIGHT;
+}
+
+//checks for snake collision
+bool SNAKE::touch(){
+	for (int i = 1; asnake.size(); i++) {
+		if ((asnake.front().getY() > 0 == asnake[i].getY()) && (asnake.front().getX() > 0 == asnake[i].getX())) { //if the head is touching the body
+			return true;
+		}
+	}
+	return false;
+}
+
+//snake moves as long as it doesn't collide
+bool SNAKE::move(int NewDirection) {
+	//Controls the snake
+	shrink();
+	if (NewDirection == UP) {
+		if (adirection != DOWN) { //When the snake faces one way, it cannot go back on itself (so if it goes UP it cannot go DOWN)
+			asnake.push_front(COORD(asnake.front().getX(), asnake.front().getY() - 25));
+			adirection = UP;
+		}
+		else {
+			asnake.push_front(COORD(asnake.front().getX(), asnake.front().getY() + 25));
+		}
+	}
+	else if (NewDirection == RIGHT) {
+		if (adirection != LEFT) { //When the snake faces one way, it cannot go back on itself
+			asnake.push_front(COORD(asnake.front().getX() + 25, asnake.front().getY()));
+			adirection = RIGHT;
+		}
+		else {
+			asnake.push_front(COORD(asnake.front().getX() - 25, asnake.front().getY()));
+		}
+	}
+	else if (NewDirection == DOWN) {
+		if (adirection != UP) { //When the snake faces one way, it cannot go back on itself
+			asnake.push_front(COORD(asnake.front().getX(), asnake.front().getY() + 25));
+			adirection = DOWN;
+		}
+		else {
+			asnake.push_front(COORD(asnake.front().getX(), asnake.front().getY() - 25));
+		}
+	}
+	else if (NewDirection == LEFT) {
+		if (adirection != RIGHT) { //When the snake faces one way, it cannot go back on itself
+			asnake.push_front(COORD(asnake.front().getX() - 25, asnake.front().getY()));
+			adirection = LEFT;
+		}
+		else {
+			asnake.push_front(COORD(asnake.front().getX() + 25, asnake.front().getY()));
+		}
+	}	
+}
 
 
 
