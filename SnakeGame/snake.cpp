@@ -23,7 +23,7 @@ void SNAKE::reset() {
 	asnake.push_front(COORD(50, 25));
 	asnake.push_front(COORD(75, 25));
 	asnake.push_front(COORD(100, 25));
-	foodCount = 0; //Reset foodCount 
+	foodCount = 0; //Reset foodCount
 }
 
 //Grows the Snake
@@ -35,7 +35,6 @@ void SNAKE::grow() {
 void SNAKE::shrink() {
 	asnake.pop_back();
 }
-
 
 //checks for food collision
 bool SNAKE::foodCollide(COORD food) {
@@ -54,9 +53,9 @@ COORD SNAKE::food() {
 	int posX = getX();
 	int posY = getY();
 
-	//random food location 
-	posX = (rand()% 15+1)*25;
-	posY = (rand()% 15+1)*25;
+	//random food location
+	posX = (rand() % 15 + 1) * 25;
+	posY = (rand() % 15 + 1) * 25;
 
 	COORD food(posX, posY);
 
@@ -89,9 +88,9 @@ void SNAKE::setDirection() {
 }
 
 //checks for snake collision
-bool SNAKE::touch(){
+bool SNAKE::touch() {
 	for (int i = 1; asnake.size(); i++) {
-		if ((asnake.front().getY() > 0 == asnake[i].getY()) && (asnake.front().getX() > 0 == asnake[i].getX())) { //if the head is touching the body
+		if ((asnake.front().getY() == asnake[i].getY()) && (asnake.front().getX() == asnake[i].getX())) { //if the head is touching the body
 			return true;
 		}
 	}
@@ -100,10 +99,9 @@ bool SNAKE::touch(){
 
 //snake moves as long as it doesn't collide
 bool SNAKE::move(int NewDirection) {
-	bool doMove = true;
 	//Controls the snake
-	shrink();
-	while (doMove = true) {
+	if (!touch()) {
+		shrink();
 		if (NewDirection == UP) {
 			if (adirection != DOWN) { //When the snake faces one way, it cannot go back on itself (so if it goes UP it cannot go DOWN)
 				asnake.push_front(COORD(asnake.front().getX(), asnake.front().getY() - 25));
@@ -146,9 +144,3 @@ bool SNAKE::move(int NewDirection) {
 		return false;
 	}
 }
-
-
-
-
-
-

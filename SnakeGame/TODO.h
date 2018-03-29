@@ -5,10 +5,11 @@
 TODO:
 	Create a grid
 	Display score
-	create a game over screen and what not. 
+	create a game over screen and what not.
+	snake eat itself collsion //MUST
+	rainbow snake (effectively)
 
 MAYBE TODO:
 	2nd Player
-
 
 */
