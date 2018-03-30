@@ -15,6 +15,7 @@ using namespace std;
 class SNAKE {
 private:
 	enum Direction { UP, DOWN, RIGHT, LEFT }; //Game Control
+	enum sDirection { W, S, A, D }; //Game Control
 	std::deque<COORD> asnake; //coord's of the snake, using deque
 	int adirection; //Set default direction of snake
 
@@ -27,7 +28,7 @@ public:
 	bool justAte; //tracks food being eaten as by change of color
 
 	void grow(); //grows the snake
-	void shrink(); //shrinks the snake, creates a movement motion. 
+	void shrink(); //shrinks the snake, creates a movement motion.
 	void reset(); //restores snake to initial size
 
 	int foodCount; //tracks the amount of food eaten.

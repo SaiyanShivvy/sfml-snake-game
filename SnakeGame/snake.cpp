@@ -11,8 +11,6 @@ using namespace std;
 
 SNAKE::SNAKE() {
 	asnake.push_front(COORD(25, 25)); //Inital position of the snake
-	asnake.push_front(COORD(50, 25));
-	asnake.push_front(COORD(75, 25));
 	foodCount = 0;
 }
 
@@ -20,9 +18,6 @@ SNAKE::SNAKE() {
 void SNAKE::reset() {
 	asnake.clear();//clears the snake
 	asnake.push_front(COORD(25, 25)); //set new snake
-	asnake.push_front(COORD(50, 25));
-	asnake.push_front(COORD(75, 25));
-	asnake.push_front(COORD(100, 25));
 	foodCount = 0; //Reset foodCount
 }
 
@@ -82,6 +77,14 @@ int SNAKE::getY() {
 	return asnake.front().getY();
 }
 
+void SNAKE::setX(int x) {
+	asnake.front().setX(x);
+}
+
+void SNAKE::setY(int y) {
+	asnake.front().setY(y);
+}
+
 //sets direction of snake
 void SNAKE::setDirection() {
 	adirection = RIGHT;
@@ -99,8 +102,9 @@ bool SNAKE::touch() {
 
 //snake moves as long as it doesn't collide
 bool SNAKE::move(int NewDirection) {
+	bool doMove = true;
 	//Controls the snake
-	if (!touch()) {
+	if (doMove) {
 		shrink();
 		if (NewDirection == UP) {
 			if (adirection != DOWN) { //When the snake faces one way, it cannot go back on itself (so if it goes UP it cannot go DOWN)
@@ -129,8 +133,8 @@ bool SNAKE::move(int NewDirection) {
 				asnake.push_front(COORD(asnake.front().getX(), asnake.front().getY() - 25));
 			}
 		}
-		else if (NewDirection == LEFT) {
-			if (adirection != RIGHT) { //When the snake faces one way, it cannot go back on itself
+		else if (NewDirection == LEFT || NewDirection == A) {
+			if (adirection != RIGHT || adirection != D) { //When the snake faces one way, it cannot go back on itself
 				asnake.push_front(COORD(asnake.front().getX() - 25, asnake.front().getY()));
 				adirection = LEFT;
 			}

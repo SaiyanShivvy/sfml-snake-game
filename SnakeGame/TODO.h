@@ -3,13 +3,15 @@
 
 /*
 TODO:
-	Create a grid
 	Display score
-	create a game over screen and what not.
 	snake eat itself collsion //MUST
 	rainbow snake (effectively)
+
+	Improve State Machine
 
 MAYBE TODO:
 	2nd Player
 
+TODO COMPLETED:
+	Draw a grid
 */
