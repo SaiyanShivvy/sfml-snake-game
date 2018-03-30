@@ -13,3 +13,6 @@ Shivneel Achari <SaiyanShivvy>
 
 ## Acknowledgments
 Stackoverflow, Google.
+
+##LICENSE
+MIT LICENSE
