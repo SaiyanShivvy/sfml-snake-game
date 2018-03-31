@@ -22,7 +22,6 @@ void SNAKE::reset() {
 	asnake.push_front(COORD(25, 25)); //set new snake
 	asnake.push_front(COORD(50, 25));
 	asnake.push_front(COORD(75, 25));
-	asnake.push_front(COORD(100, 25));
 	foodCount = 0; //Reset foodCount
 }
 
@@ -60,7 +59,7 @@ COORD SNAKE::food() {
 	COORD food(posX, posY);
 
 	//sets food if index is empty
-	for (int i = 0; i < asnake.size(); i++) { //checks all coords to make sure indexs are empty
+	for (int i = 0; i < asnake.size() + 1; i++) { //checks all coords to make sure indexs are empty
 		if (!food.same(food, asnake[i])) { //if the location is not currently being used by the snake
 			return food;
 		}
@@ -108,7 +107,7 @@ bool SNAKE::touch() {
 //snake moves as long as it doesn't collide
 bool SNAKE::move(int NewDirection) {
 	//Controls the snake
-	if ((asnake.front().getX() > 0) && (asnake.front().getY() > 0) && (asnake.front().getX() < 775) && (asnake.front().getY() < 575) && !touch()) {
+	if (!touch()) {
 		shrink();
 		if (NewDirection == UP) {
 			if (adirection != DOWN) { //When the snake faces one way, it cannot go back on itself (so if it goes UP it cannot go DOWN)
