@@ -2,7 +2,7 @@
 #include "snake.h"
 #include "coord.h"
 #include <iostream>
-#include <deque> //Used to manage snake body, found it a bit easier than vectors
+#include <deque> //Used to manage snake body
 #include <math.h>
 #include <cstdlib>
 #include <time.h>
@@ -11,6 +11,8 @@ using namespace std;
 
 SNAKE::SNAKE() {
 	asnake.push_front(COORD(25, 25)); //Inital position of the snake
+	asnake.push_front(COORD(50, 25));
+	asnake.push_front(COORD(75, 25));
 	foodCount = 0;
 }
 
@@ -18,6 +20,9 @@ SNAKE::SNAKE() {
 void SNAKE::reset() {
 	asnake.clear();//clears the snake
 	asnake.push_front(COORD(25, 25)); //set new snake
+	asnake.push_front(COORD(50, 25));
+	asnake.push_front(COORD(75, 25));
+	asnake.push_front(COORD(100, 25));
 	foodCount = 0; //Reset foodCount
 }
 
@@ -92,8 +97,8 @@ void SNAKE::setDirection() {
 
 //checks for snake collision
 bool SNAKE::touch() {
-	for (int i = 1; asnake.size(); i++) {
-		if ((asnake.front().getY() == asnake[i].getY()) && (asnake.front().getX() == asnake[i].getX())) { //if the head is touching the body
+	for (int i = 1; i < static_cast<ptrdiff_t>(asnake.size()); i++) {
+		if ((asnake.front().getX() == asnake[i].getX()) && (asnake.front().getY() == asnake[i].getY())) { //if the head is touching the body
 			return true;
 		}
 	}
@@ -102,9 +107,8 @@ bool SNAKE::touch() {
 
 //snake moves as long as it doesn't collide
 bool SNAKE::move(int NewDirection) {
-	bool doMove = true;
 	//Controls the snake
-	if (doMove) {
+	if ((asnake.front().getX() > 0) && (asnake.front().getY() > 0) && (asnake.front().getX() < 775) && (asnake.front().getY() < 575) && !touch()) {
 		shrink();
 		if (NewDirection == UP) {
 			if (adirection != DOWN) { //When the snake faces one way, it cannot go back on itself (so if it goes UP it cannot go DOWN)
@@ -144,7 +148,5 @@ bool SNAKE::move(int NewDirection) {
 		}
 		return true;
 	}
-	else {
-		return false;
-	}
+	else return false;
 }
