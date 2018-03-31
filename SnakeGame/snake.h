@@ -19,6 +19,8 @@ private:
 	std::deque<COORD> asnake; //coord's of the snake, using deque
 	int adirection; //Set default direction of snake
 
+	std::deque<COORD> asnake2; //coord's of the snake, using deque
+
 public:
 	SNAKE(); //for the snake itself
 	COORD food(); //food location using COORD class
