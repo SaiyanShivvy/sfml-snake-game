@@ -59,9 +59,9 @@ COORD SNAKE::food() {
 	*/
 
 	//now with <random> lib instead of rand()
-	std::random_device rd;  //Will be used to obtain a seed for the random number engine
-	std::uniform_int_distribution<> distribution(1, 22);
-	std::default_random_engine generator(rd());
+	std::random_device rd;
+	std::uniform_int_distribution<> distribution(1, 22); //distribution
+	std::default_random_engine generator(rd()); //Will be used to obtain a seed for the random number engine
 	std::mt19937 gen(rd()); //Standard mersenne_twister_engine seeded with rd()
 
 	posX = (distribution(rd) * 25);
