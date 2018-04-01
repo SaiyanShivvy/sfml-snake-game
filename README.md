@@ -8,11 +8,11 @@ Made in Visual Studio 2017 and Atom.
 ## Version
 Current: 0.1 
 
-## Authors
-Shivneel Achari <SaiyanShivvy>
+## Author
+Shivneel Achari
 
-## Acknowledgments
-Stackoverflow, Google.
+#How to use
+Run with Visual Studio 2017
 
 ##LICENSE
 MIT LICENSE
