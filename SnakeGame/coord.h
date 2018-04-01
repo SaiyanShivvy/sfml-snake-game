@@ -6,22 +6,22 @@
 #include <iostream>
 using namespace std;
 
-//Declares the Class COORD
+//Declares the class COORD
 class COORD {
-//private variables
+	//private variables
 private:
 	int ax, ay;
 
-//public functions
+	//public functions
 public:
 	COORD(int, int); //Coordinates that are defined by x and y values
-	bool same(COORD c1, COORD c2); //boolean func to check if coords are similar
+	bool same(COORD c1, COORD c2); //boolean functions to check if coords are the same
 
-	//accesors
+	//Accessors
 	int getX();
 	int getY();
 
-	//mutators
+	//Mutators
 	void setX(int x);
 	void setY(int y);
 };

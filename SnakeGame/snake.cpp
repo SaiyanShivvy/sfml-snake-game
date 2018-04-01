@@ -2,7 +2,7 @@
 #include "snake.h"
 #include "coord.h"
 #include <iostream>
-#include <deque> //Used to manage snake body
+#include <deque> //Used to manage snake body, similar to vector.
 #include <math.h>
 #include <cstdlib>
 #include <time.h>
@@ -10,6 +10,7 @@
 
 using namespace std;
 
+//Creates the Snake
 SNAKE::SNAKE() {
 	asnake.push_front(COORD(25, 25)); //Inital position of the snake
 	asnake.push_front(COORD(50, 25));
@@ -147,8 +148,8 @@ bool SNAKE::move(int NewDirection) {
 				asnake.push_front(COORD(asnake.front().getX(), asnake.front().getY() - 25));
 			}
 		}
-		else if (NewDirection == LEFT || NewDirection == A) {
-			if (adirection != RIGHT || adirection != D) { //When the snake faces one way, it cannot go back on itself
+		else if (NewDirection == LEFT) {
+			if (adirection != RIGHT) { //When the snake faces one way, it cannot go back on itself
 				asnake.push_front(COORD(asnake.front().getX() - 25, asnake.front().getY()));
 				adirection = LEFT;
 			}

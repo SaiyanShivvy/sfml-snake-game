@@ -1,5 +1,4 @@
 #pragma once
-//enum maybe replaced to keyboard events.
 
 #ifndef SNAKE_H
 #define SNAKE_H
@@ -14,8 +13,7 @@ using namespace std;
 //Declares the Snake Class
 class SNAKE {
 private:
-	enum Direction { UP, DOWN, RIGHT, LEFT }; //Game Control
-	enum sDirection { W, S, A, D }; //Game Control
+	enum Direction { UP, DOWN, RIGHT, LEFT }; //Game Control for Snake
 	std::deque<COORD> asnake; //coord's of the snake, using deque
 	int adirection; //Set default direction of snake
 
@@ -25,7 +23,7 @@ public:
 	bool move(int); //moves the snake
 	bool touch(); //used when checking for collision of the snake colliding with itself
 	bool foodCollide(COORD food); //used to check if the snake collides with the fruit
-	bool justAte; //tracks food being eaten as by change of color
+	bool justAte; //tracks food being eaten as by change of color, however this is not currently being used
 
 	void grow(); //grows the snake
 	void shrink(); //shrinks the snake, creates a movement motion.
@@ -36,16 +34,16 @@ public:
 		return adirection; //returns the current direction of the snake
 	}
 
-	//accessors
+	//Accessors
 	int getX();
 	int getY();
 	std::deque<COORD> getCoords(); //return the coord of the snake
 
-	//mutators
+	//Mutators
 	void setX(int x);
 	void setY(int y);
 	void setDirection();
-	std::deque<COORD> setCoords(int x, int y);
+	std::deque<COORD> setCoords(int x, int y); //useful for second player
 };
 
 #endif

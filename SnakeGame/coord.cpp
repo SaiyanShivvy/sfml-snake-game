@@ -10,7 +10,7 @@ COORD::COORD(int x, int y) {
 	ay = y;
 }
 
-//Get X and Y
+//Gets X and Y
 int COORD::getX() {
 	return ax;
 }
@@ -18,8 +18,8 @@ int COORD::getY() {
 	return ay;
 }
 
-//Checks the COORD, and returns a bool 
-bool COORD:: same(COORD c1, COORD c2) {
+//Checks the COORD, and returns a bool
+bool COORD::same(COORD c1, COORD c2) {
 	//Checks if one coord's x and y values the same as another.
 	if ((c1.ax == c2.ax) && (c1.ay == c2.ay)) {
 		return true;
