@@ -1,7 +1,7 @@
 # Snake Game
 Assignment 1 for Game Programming.
 
-##How to use
+## How to use
 Run with Visual Studio 2017
 
 ## Additional Information
@@ -15,5 +15,5 @@ Multi: Not Impletement.
 ## Author
 Shivneel Achari
 
-##LICENSE
+## LICENSE
 MIT LICENSE
