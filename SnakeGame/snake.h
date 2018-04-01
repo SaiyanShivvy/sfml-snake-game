@@ -21,7 +21,7 @@ private:
 
 public:
 	SNAKE(); //for the snake itself
-	COORD food(); //food location using COORD class
+	COORD food(); //food location using COORD class and <random> lib
 	bool move(int); //moves the snake
 	bool touch(); //used when checking for collision of the snake colliding with itself
 	bool foodCollide(COORD food); //used to check if the snake collides with the fruit

@@ -6,6 +6,7 @@
 #include <math.h>
 #include <cstdlib>
 #include <time.h>
+#include <random>
 
 using namespace std;
 
@@ -48,13 +49,23 @@ bool SNAKE::foodCollide(COORD food) {
 
 //create food
 COORD SNAKE::food() {
-	srand(time(NULL)); // Random time seed for setting food
 	int posX = getX();
 	int posY = getY();
 
+	/*srand(time(NULL)); // Random time seed for setting food
 	//random food location
 	posX = (rand() % 15 + 1) * 25;
 	posY = (rand() % 15 + 1) * 25;
+	*/
+
+	//now with <random> lib instead of rand()
+	std::random_device rd;  //Will be used to obtain a seed for the random number engine
+	std::uniform_int_distribution<> distribution(1, 22);
+	std::default_random_engine generator(rd());
+	std::mt19937 gen(rd()); //Standard mersenne_twister_engine seeded with rd()
+
+	posX = (distribution(rd) * 25);
+	posY = (distribution(rd) * 25);
 
 	COORD food(posX, posY);
 
