@@ -101,6 +101,12 @@ void SNAKE::setY(int y) {
 	asnake.front().setY(y);
 }
 
+std::deque<COORD> SNAKE::setCoords(int x, int y) {
+	asnake.front().setX(x);
+	asnake.front().setY(y);
+	return asnake;
+}
+
 //sets direction of snake
 void SNAKE::setDirection() {
 	adirection = RIGHT;
