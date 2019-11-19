@@ -33,7 +33,7 @@ Alternatively to building it, run the precomplied .exe in the release folder.
 - End Condition
   - When all snakes die. 
 - GUI 
- - No real 'GUI', everything is done via CLI.
+  - No real 'GUI', everything is done via CLI.
 - Known Bugs
   - When warping from one side to window to the other inputting any direction prior to snake appearing cause it to reamin offscreen.
 
