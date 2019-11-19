@@ -41,7 +41,7 @@ The Snake is controlled using WSAD (or Directional Keys). Collect Apple (Red Squ
   - Both Snakes have the exact same starting position.
 
 ## Preview 
-![preview.gif]
+![](preview.gif)
 
 ## Author
 Shivneel Achari
