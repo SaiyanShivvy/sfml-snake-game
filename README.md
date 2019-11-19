@@ -40,6 +40,9 @@ The Snake is controlled using WSAD (or Directional Keys). Collect Apple (Red Squ
   - When warping from one side to window to the other inputting any direction prior to snake appearing cause it to reamin offscreen.
   - Both Snakes have the exact same starting position.
 
+## Preview 
+![preview.gif]
+
 ## Author
 Shivneel Achari
 
