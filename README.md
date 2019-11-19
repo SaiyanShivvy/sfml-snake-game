@@ -10,7 +10,7 @@ The Snake is controlled using WSAD (or Directional Keys). Collect Apple (Red Squ
 - To restore NuGet Packages, goto 'Manage NuGet Packages' in the 'Project' Menu.
 - Then either Build the Release or Debug in x86 Version of the Project, or Run using the local debugger. 
   > If you decide to build the and run the .exe file from the Release/Debug folder, copy the sfml dll and font file from the SnakeGame    folder to the Release/Debug folder.
-- Alternatively, You could download a [Prebuilt Version](/owner/name/releases/latest/download/Release.zip). Then just run the exe file.
+- Alternatively, You could download a [Prebuilt Version](/SaiyanShivvy/sfml-snake-game/releases/latest/download/Release.zip). Then just run the exe file.
 
 
 > The game was tested only using Visual Studio for Windows but the code should also works on other systems supported by SFML.
